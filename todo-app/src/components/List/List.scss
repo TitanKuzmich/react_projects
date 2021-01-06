@@ -1,5 +1,20 @@
 .list{
+  $self: &;
+
   margin-bottom: 30px;
+
+  &__add-button {
+    opacity: .6;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__remove-icon{
+    display: block;
+    opacity: 0;
+  }
 
   li{
     display: flex;
@@ -7,6 +22,32 @@
     padding: 10px 12px;
     cursor: pointer;
     margin-bottom: 5px;
+    transition: background-color .1s ease-in-out;
+
+    &:hover {
+      background-color: rgba(255,255,255,.5);
+    }
+
+    &:hover #{$self}__remove-icon {
+      opacity: .2;
+    }
+
+    #{$self}__remove-icon {
+      opacity: 0;
+      transition: opacity .15s ease-in-out;
+
+      &:hover {
+        opacity: .8;
+      }
+    }
+
+    span {
+      flex: 1;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: 160px;
+      white-space: nowrap;
+    }
 
     &.item_active{
       background: #FFFFFF;
@@ -19,35 +60,7 @@
       margin-right: 8px;
 
       img{
-        opacity: .8;
-      }
-    }
-
-    .badge{
-      width: 10px;
-      height: 10px;
-      border-radius: 30px;
-      position: relative;
-      left: 5px;
-
-      &--green{
-        background-color: #42b883;
-      }
-
-      &--blue{
-        background-color: #64C4ED;
-      }
-
-      &--pink{
-        background-color: #FFBBCC;
-      }
-
-      &--{
-        background-color: #B6E6BD;
-      }
-
-      &--{
-        background-color: #C9D1D3;
+        opacity: .6;
       }
     }
   }

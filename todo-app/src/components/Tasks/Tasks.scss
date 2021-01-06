@@ -1,0 +1,175 @@
+.tasks {
+  &:not(:last-of-type) {
+    margin-bottom: 40px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  &__title {
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 39px;
+    color: #64C4ED;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #F2F2F2;
+
+    &:hover {
+      img {
+        opacity: .2;
+      }
+    }
+
+    img {
+      opacity: 0;
+      cursor: pointer;
+      margin-left: 15px;
+
+      &:hover {
+        opacity: .8;
+      }
+    }
+  }
+
+  &__form {
+    margin-top: 20px;
+
+    &-block {
+      margin-right: 10px;
+      margin-top: 15px;
+
+      input {
+        margin-bottom: 16px;
+      }
+    }
+
+    &-new {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      opacity: .4;
+      transition: .2s;
+
+      &:hover {
+        opacity: .8;
+      }
+
+      img {
+        width: 16px;
+        height: 16px;
+        margin-left: 4px;
+      }
+
+      span {
+        font-size: 16px;
+        margin-left: 19px;
+      }
+    }
+  }
+
+  &__items{
+    margin-top: 30px;
+
+    h2 {
+      font-family: Montserrat;
+      font-weight: bold;
+      font-size: 32px;
+      line-height: 39px;
+      color: #C9D1D3;
+    }
+
+    &-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+
+
+      p {
+        font-size: 16px;
+        margin-left: 15px;
+        display: block;
+        flex-grow: 1;
+      }
+
+      &:hover &-actions {
+        opacity: 1;
+      }
+
+      &-actions {
+        display: flex;
+        opacity: 0;
+        transition: opacity 0.15s ease-in-out;
+
+        div {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 32px;
+          height: 32px;
+          background-color: lighten(#f4f6f8, 2%);
+          border-radius: 6px;
+          margin-left: 5px;
+          cursor: pointer;
+
+          &:hover {
+            background-color: darken(#f4f6f8, 2%);
+            svg {
+              opacity: 0.9;
+            }
+          }
+
+          svg {
+            width: 11px;
+            height: 11px;
+            opacity: 0.4;
+          }
+        }
+      }
+    }
+  }
+
+  .checkbox {
+    input {
+      display: none;
+    }
+
+    &:hover {
+      label {
+        background-color: #F2F2F2;
+        border-color: #F2F2F2;
+
+        svg {
+          path {
+            stroke: #B3B3B3;
+          }
+        }
+      }
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #e8e8e8;
+      border-radius: 30px;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      transition: all .2s ease-in-out;
+    }
+
+    input:checked + label {
+      background-color: #4DD599;
+      border-color: #4DD599;
+
+      svg {
+        path {
+          stroke: #FFFFFF;
+          transition: all .2s ease-in-out;
+        }
+      }
+    }
+  }
+}
