@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import classNames from 'classnames'
 
 function Button({className, outline, children, buttonClick}) {
@@ -11,7 +11,7 @@ function Button({className, outline, children, buttonClick}) {
         >
             {children}
         </button>
-    );
+    )
 }
 
-export default Button;
+export default Button

@@ -1,17 +1,17 @@
-import React, {useState, useEffect, useRef, memo} from 'react';
-import classNames from "classnames";
+import React, {useState, useEffect, useRef, memo} from 'react'
+import classNames from "classnames"
 
-const SortPopup = memo(function SortPopup({ items }) {
+const SortPopup = memo(function SortPopup({ items, activeSortType, onClickSortType }) {
 
     const [visiblePopup, setVisiblepopup] = useState(false)
-    const [activeItem, setActiveItem] = useState(0)
 
-    const activeLabel = items[activeItem].name
+    const activeLabel = items ? items.find(obj => obj.type === activeSortType).name : 'popular'
 
     const sortRef = useRef()
 
     const handleOutsideClick = (e) => {
-        if(!e.path.includes(sortRef.current)){
+        const path = (e.composedPath && e.composedPath()) || e.path
+        if(!path.includes(sortRef.current)){
             setVisiblepopup(false)
         }
     }
@@ -25,7 +25,7 @@ const SortPopup = memo(function SortPopup({ items }) {
     }
 
     const onSelectItem = (index) => {
-        setActiveItem(index)
+        onClickSortType(index)
         setVisiblepopup(false)
     }
 
@@ -53,16 +53,16 @@ const SortPopup = memo(function SortPopup({ items }) {
                 <ul>
                     {items && items.map((obj, index) => (
                         <li
-                            className={classNames({'active': index === activeItem})}
+                            className={classNames({'active': obj.type === activeSortType})}
                             key={`${obj.type}_${index}`}
-                            onClick={ () => onSelectItem(index) }
+                            onClick={ () => onSelectItem(obj) }
                         >{obj.name}</li>
                     ))}
                 </ul>
             </div>
             }
         </div>
-    );
+    )
 })
 
-export default SortPopup;
+export default SortPopup
