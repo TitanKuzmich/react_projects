@@ -1,0 +1,26 @@
+@import '../../scss/palette';
+@import '../../scss/mixins';
+
+.pageOverlay{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  &.flexPageOverlay{
+    @include flex-item;
+    &.justifyEnd{
+      justify-content: flex-end;
+    }
+  }
+}
+
+.blockOverlay{
+  width: 100%;
+  height: 100%;
+  background-color: rgba($simpleRaven, .2);
+  &.flexBlockOverlay{
+    @include flex-item;
+    &.justifyEnd{
+      justify-content: flex-end;
+    }
+  }
+}

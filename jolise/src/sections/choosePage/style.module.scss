@@ -1,0 +1,177 @@
+@import "./src/scss/palette";
+
+.choosePage{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.relativeWrapper{
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.chooseTitle {
+  width: 235px;
+  height: 235px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%)  rotateZ(-90deg);
+  color: $colorBlack;
+  font-size: 60px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 100%;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.madeBy{
+  position: absolute;
+  width: 100px;
+  height: 50px;
+  bottom: -10%;
+  left: -10%;
+  z-index: 5;
+
+  .madeByWrapper{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    color: $colorWhite;
+    font-size: 12px;
+    font-weight: 300;
+    overflow: hidden;
+    display: flex;
+    padding: 12px 10px 0 7px;
+    cursor: pointer;
+
+    &:after{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -30%;
+      width: 130%;
+      height: 100%;
+      background-color: $colorBlack;
+      transform: skewX(45deg);
+      z-index: -1;
+    }
+  }
+}
+
+.dividerTop, .dividerBottom{
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 31%;
+  background-image: linear-gradient(to bottom, #000000, #170a10, #22121e, #2b172d, #301f40, #33264c, #342d5a, #333567, #3a3c6f, #414478, #494b80, #505389);
+  transition: .5s ease-in-out;
+  z-index: 10;
+}
+
+.dividerBottom{
+  top: unset;
+  bottom: 0;
+  transform: rotate(180deg);
+}
+
+.arrowTop, .arrowBottom{
+  width: 50px;
+  height: 70px;
+  position: absolute;
+  top: 100%;
+  left: 41%;
+  transform: rotate(180deg);
+  z-index: 10;
+}
+
+.arrowBottom{
+  top: unset;
+  bottom: 100%;
+  left: 56%;
+  transform: rotate(0deg);
+}
+
+.simpleSide, .complexSide{
+  width: 55%;
+  height: 100%;
+  position: relative;
+}
+
+.whiteCurtain{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: $colorWhite;
+  z-index: 5;
+}
+
+.simpleSideTitle, .complexSideTitle{
+  position: absolute;
+  z-index: 10;
+  top: 18%;
+  right: 0;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: right;
+  padding: 10px 53px;
+  box-sizing: unset;
+  overflow: hidden;
+
+  .titleWrapper{
+    &:after{
+      content: "";
+      display: block;
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 125%;
+      height: 100%;
+      background-color: $colorBlack;
+      transform: skewX(45deg);
+    }
+  }
+
+  h2 {
+    width: 235px;
+    & > a {
+      text-decoration: none;
+      color: $colorWhite;
+    }
+  }
+}
+
+.complexSideTitle{
+  top: unset;
+  right: unset;
+  bottom: 18%;
+  left: 0;
+  text-align: left;
+
+  .titleWrapper{
+    &:after{
+      left: -25%;
+      transform: skewX(45deg);
+    }
+  }
+}
+
+.complexParticles{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.complexCanvas{
+  position: static !important;
+  display: block;
+}

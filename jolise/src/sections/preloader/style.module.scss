@@ -1,0 +1,14 @@
+@import "./src/scss/palette";
+
+.preloader{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: $colorBlack;
+  color: $colorWhite;
+  font-size: 60px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

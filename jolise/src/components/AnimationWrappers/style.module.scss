@@ -1,0 +1,11 @@
+@import '../../scss/palette';
+
+.pageCurtain{
+  position: absolute;
+  width: 35%;
+  height: 100%;
+  z-index: 1000;
+  transform: skew(15deg);
+  background-color: $simpleBrandyRose;
+  right: 120%;
+}

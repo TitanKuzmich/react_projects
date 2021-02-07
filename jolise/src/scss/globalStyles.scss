@@ -1,0 +1,32 @@
+@import "./src/scss/palette";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "serif, HelveticaNeue, Arial, sans-serif";
+}
+
+h1{
+  font-size: 60px;
+  line-height: 64px;
+  font-weight: bold;
+  color: rgba($simpleBrandyRose, .7);
+}
+
+.page {
+  &-wrapper {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  &-itle {
+    font-size: 32px;
+    color: $colorWhite;
+    font-weight: 600;
+    line-height: 40px;
+    text-align: center;
+  }
+}
