@@ -32,7 +32,7 @@ function ChoosePage({ routeAnim }) {
     const curtainTopRef = useRef(null);
     const curtainBottomRef = useRef(null);
 
-    const [rotateAnim, setRotateAnim] = useState(false);
+    const [rotateAnim, setRotateAnim] = useState(true);
 
     const tl = new TimelineLite();
 
@@ -121,12 +121,12 @@ function ChoosePage({ routeAnim }) {
 
     const rotation = () => {
         if(isLoaded) {
-            setRotateAnim(!rotateAnim);
             if(rotateAnim){
                 rotateOnEnter()
             } else if(!rotateAnim){
                 rotateOnLeave();
             }
+            setRotateAnim(!rotateAnim);
         }
     }
 
@@ -185,7 +185,8 @@ function ChoosePage({ routeAnim }) {
                         <div ref={simpleTitleRef} className={style.simpleSideTitle}>
                             <div className={style.titleWrapper}>
                                 <h2>
-                                    <a href="/simple" onClick={(e) => {routeAnim(e)}}>
+                                    <a href="/simple"
+                                       onClick={(e) => {routeAnim(e)}}>
                                         Awesome LIght
                                     </a>
                                 </h2>
@@ -201,7 +202,8 @@ function ChoosePage({ routeAnim }) {
                         <div ref={complexTitleRef} className={style.complexSideTitle}>
                             <div className={style.titleWrapper}>
                                 <h2>
-                                    <a href="/creative" onClick={(e) => {routeAnim(e)}}>
+                                    <a href="/creative"
+                                       onClick={(e) => {routeAnim(e)}}>
                                         Creative Emotional
                                     </a>
                                 </h2>

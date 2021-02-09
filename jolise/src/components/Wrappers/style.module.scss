@@ -14,13 +14,8 @@
 }
 
 .blockOverlay{
-  width: 100%;
+  width: 1342px;
   height: 100%;
-  background-color: rgba($simpleRaven, .2);
-  &.flexBlockOverlay{
-    @include flex-item;
-    &.justifyEnd{
-      justify-content: flex-end;
-    }
-  }
+  margin: 0 auto;
+  padding: 35px 0;
 }

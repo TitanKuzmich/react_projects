@@ -11,7 +11,6 @@ import {changePageAnimation} from "../../redux/actions/changePage"
 export const PageAnimationWrapper = ({ children, className, destination, event}) => {
 
     const dispatch = useDispatch();
-    const isChanging = useSelector(({changePage}) => changePage.changingPage)
 
     const currentPageRef = useRef(null);
     const routeAnimFirstRef = useRef(null);
@@ -19,26 +18,25 @@ export const PageAnimationWrapper = ({ children, className, destination, event})
     const routeAnimThirdRef = useRef(null);
     const routeAnimFourthRef = useRef(null);
 
-    const routeTimeline = new TimelineLite();
+    let routeTimeline =  useRef(null)
 
     const routeAnim = (e) => {
         e.preventDefault();
         dispatch(changePageAnimation(true));
-        routeTimeline
+        routeTimeline.current = new TimelineLite({paused: true})
             .to(routeAnimFirstRef.current, {duration: .7, ease: "power3.easeOut", right: "-9%"}, 0)
             .to(routeAnimSecondRef.current, {duration: .6, ease: "power3.easeOut", right: "25%"}, 0.2)
             .to(routeAnimThirdRef.current, {duration: .5, ease: "power3.easeOut", right: "60%"}, 0.4)
-            .to(routeAnimFourthRef.current, {duration: .4, ease: "power3.easeOut", right: "94%"}, 0.5)
+            .to(routeAnimFourthRef.current, {duration: .6, ease: "power3.easeOut", right: "94%"}, 0.6)
             .to(currentPageRef.current, {duration: .3, ease:"power3.easeInOut", opacity: 0})
             .call(() => {
                 dispatch(changePageAnimation(false));
                 dispatch(push(e.target.pathname));
             })
+            .to([routeAnimFirstRef.current, routeAnimSecondRef.current, routeAnimThirdRef.current, routeAnimFourthRef.current], {duration: .01, right:"120%"})
+            .to(currentPageRef.current, {duration: .01, opacity: 1})
+        routeTimeline.current.play();
     }
-
-    useEffect(() => {
-        return console.log("component will unmount")
-    }, [])
 
     const clonedChildren = React.cloneElement(children, {routeAnim})
 

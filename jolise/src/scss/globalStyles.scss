@@ -4,7 +4,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "serif, HelveticaNeue, Arial, sans-serif";
+  font-family: 'Montserrat', sans-serif, 'Rubik Mono One', sans-serif;
+  outline: none;
 }
 
 h1{
@@ -20,13 +21,5 @@ h1{
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-  }
-
-  &-itle {
-    font-size: 32px;
-    color: $colorWhite;
-    font-weight: 600;
-    line-height: 40px;
-    text-align: center;
   }
 }

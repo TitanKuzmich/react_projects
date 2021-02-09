@@ -1,0 +1,348 @@
+@import '../../scss/palette';
+@import '../../scss/mixins';
+
+.arrow{
+  width: 50px;
+  height: 70px;
+  position: absolute;
+  &.arrowHeader{
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+//HEADER-----------------------------------------------------
+
+.header{
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+
+  //HAMBURGER--------
+
+  .hamburger{
+    position: fixed;
+    right: 4%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+    z-index: 100;
+
+    .borderWrapper{
+      width: 100%;
+      height: 100%;
+      position: relative;
+      border: 1px solid transparent;
+      border-radius: 50%;
+      transition: .3s ease-in-out;
+
+      .spanWrapper {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 29px 0;
+        overflow: hidden;
+
+        span {
+          display: block;
+          height: 2px;
+          width: 70%;
+          background-color: $simpleBrandyRose;
+          margin-bottom: 12px;
+          transform: scale(1);
+          transition: 0.5s all ease;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      &:after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 1px solid $simpleBrandyRose;
+        border-radius: 4px;
+        transition: .3s ease-in-out;
+        z-index: -1;
+      }
+
+      &:hover:after{
+        transform: rotate(45deg);
+        border-radius: 50%;
+      }
+    }
+  }
+
+  //HAMBURGER********
+
+
+  //MENU-----------------------------------------------------
+
+  .navigation{
+    position: absolute;
+    left: -100%;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    background-color: rgba($simpleBrandyRose, .7);
+    transform: translateY(-50%);
+
+    .mainNavigation{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+
+      ul{
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .mainNavigationItem{
+        font-size: 60px;
+        margin-bottom: 25px;
+
+        a{
+          text-decoration: none;
+          color: $colorWhite;
+          font-weight: 700;
+          display: block;
+          transition: .5s ease-in-out;
+          position: relative;
+
+          &:before {
+            content: "";
+            @include underline-link();
+            background-color: $colorWhite;
+            transform: scaleX(0);
+          }
+
+          &:hover:before {
+            content: "";
+            @include underline-link();
+            background-color: $colorWhite;
+            transform: scaleX(1);
+          }
+        }
+
+        &:nth-child(1n):after{
+          content: '';
+          pointer-events: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: fixed;
+          color: rgba($colorWhite, .15);
+          font-size: 102px;
+          line-height: 94px;
+          font-weight: 900;
+          width: 816px;
+          height: 228px;
+          text-align: center;
+          top: 50%;
+          left:-3.8%;
+          text-transform: uppercase;
+          transform: translateY(-50%) rotate(-90deg);
+          transition: .5s ease-in-out;
+          opacity: 0;
+        }
+
+        &:hover:nth-child(1):after{
+          opacity: 1;
+          content: 'Немного статистики';
+        }
+
+        &:hover:nth-child(2):after{
+          opacity: 1;
+          content: 'Наши услуги';
+        }
+
+        &:hover:nth-child(3):after{
+          opacity: 1;
+          content: 'Консультация';
+        }
+
+        &:hover:nth-child(4):after{
+          opacity: 1;
+          content: 'Кейсы';
+        }
+
+        &:hover:nth-child(5):after{
+          opacity: 1;
+          content: 'Контакты';
+        }
+
+        &:hover:nth-child(6):after{
+          opacity: 1;
+          content: 'На главную';
+        }
+      }
+    }
+  }
+
+  //MENU*****************************************************
+
+  //DIVIDER--------------------------------------------------
+  .menuSideTitle{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 94px;
+    top: 100%;
+    transform-origin: 0 0;
+    transform: translateY(-50%);
+    left: 3.5%;
+
+    .menuSideTitleText{
+      font-family: "Rubik Mono One", sans-serif;
+      color: $colorWhite;
+      font-size: 102px;
+      line-height: 94px;
+      font-weight: 900;
+      text-transform: uppercase;
+      width: 830px;
+      height: 94px;
+      text-align: center;
+      transform-origin: 0 0;
+      transform: rotate(-90deg);
+      position: relative;
+
+      &.titleBrandyColor{
+        color: $simpleBrandyRose;
+      }
+
+      .sideTitleDivider{
+        position: absolute;
+        bottom: -62px;
+        left: 0;
+        height: 1px;
+        width: 100%;
+        background-color: $colorWhite;
+
+        &.secondSideTitleDivider{
+          bottom: -289px;
+        }
+
+        &.dividerChambrayColor{
+          background-color: $simpleChambray;
+        }
+      }
+    }
+  }
+
+  //DIVIDER***********************************************
+
+  //.sideTitle{
+  //  position: absolute;
+  //  top: 50%;
+  //  left: -14%;
+  //  transform: translateY(-50%) rotate(-90deg);
+  //  display: flex;
+  //  flex-direction: column;
+  //
+  //  .sideTitleText{
+  //    font-family: "Rubik Mono One", sans-serif;
+  //    font-size: 102px;
+  //    color: $simpleBrandyRose;
+  //    text-align: center;
+  //    line-height: 110px;
+  //    text-transform: uppercase;
+  //  }
+  //
+  //  .sideDivider{
+  //    width: 100%;
+  //    height: 1px;
+  //    margin-top: 50px;
+  //    background-color: $simpleChambray;
+  //  }
+  //}
+
+  .info{
+    height: 100%;
+    display: flex;
+
+    .lottieWrapper {
+      width: 64%;
+      height: 100%;
+      display: flex;
+      position: relative;
+
+      .headerBg {
+        width: 100%;
+        height: 80%;
+      }
+
+      .sendRequest{
+        position: absolute;
+        bottom: 1%;
+        left: 50%;
+        transform: translateX(-50%);
+        display: inline-block;
+        width: 284px;
+        text-decoration: none;
+        padding: 8px 16px;
+        border: 1px solid $simpleBrandyRose;
+        border-radius: 4px;
+        color: $simpleBrandyRose;
+        background-color: $colorWhite;
+        font-size: 30px;
+        font-weight: bold;
+        transition: .3s ease-in-out;
+
+        &:hover{
+          background-color: $simpleBrandyRose;
+          color: $colorWhite;
+        }
+      }
+    }
+
+    .infoWrapper{
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      width: 46%;
+
+      .infoBigText{
+        font-size: 73px;
+        line-height: 76px;
+        font-weight: bold;
+        color: $simpleBrandyRose;
+        text-transform: uppercase;
+      }
+
+      .infoSmallText{
+        font-size: 30px;
+        line-height: 34px;
+        font-weight: bold;
+        color: $simpleBrandyRose;
+        margin-top: 10px;
+        text-transform: uppercase;
+      }
+
+      .divider{
+        width: 100%;
+        height: 1px;
+        background-color: $simpleChambray;
+        margin: 25px 0;
+      }
+    }
+  }
+}

@@ -9,8 +9,8 @@ export const PageOverlay = ({ children, className, isFlex, justifyEnd }) => {
     );
 }
 
-export const BlockOverlay = ({ children, className, isFlex, justifyEnd }) => {
+export const SectionWrapper = ({ children, className}) => {
     return (
-        <div className={classNames(style.blockOverlay, className, {[style.flexBlockOverlay]: isFlex, [style.justifyEnd]: justifyEnd})}>{ children }</div>
+        <div className={classNames(style.blockOverlay, className)}>{ children }</div>
     );
 }
